@@ -1,3 +1,23 @@
+/*
+ * PKCS#11 Key Performance Benchmark Tool
+ * 
+ * This program benchmarks the performance of cryptographic signing and verification
+ * operations using keys stored in PKCS#11 compatible hardware security modules (HSMs)
+ * or software tokens. It supports RSA, DSA, and ECC key types and measures the average
+ * time for signing and verification operations across multiple rounds.
+ * 
+ * Features:
+ * - Automatic key discovery by label across PKCS#11 slots
+ * - Support for multiple key types (RSA, DSA, ECC) and signing mechanisms
+ * - Performance benchmarking with configurable test data size and iteration count
+ * - Detailed error reporting with hex-formatted PKCS#11 return codes
+ * - Automatic fallback from hash-based to plain signing mechanisms
+ * 
+ * Usage: Configure key labels, slot IDs, and test parameters in the main function
+ * 
+ * Dependencies: PKCS#11 Cryptoki library, nfast-conf.h
+*/
+
 #include <iostream>
 #include <vector>
 #include <chrono>
@@ -465,3 +485,4 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 }
+
