@@ -36,10 +36,10 @@
  * 
  * For softcard slots, you must preload the softcard before running:
  * 
- *     preload -s <SoftcardName> .\mldsa_dll_signer.exe <file.dll> <key_name>
+ *     preload -s <SoftcardName> .\mldsa_code_signer.exe <file.dll> <key_name>
  * 
  * Example:
- *     preload -s TestSoftcard .\mldsa_dll_signer.exe mydll.dll "ML-DSA-65-Key"
+ *     preload -s TestSoftcard .\mldsa_code_signer.exe mydll.dll "ML-DSA-65-Key"
  */
 
 #include <iostream>
@@ -453,8 +453,8 @@ void printUsage() {
     std::cout << "=============================" << std::endl;
     std::cout << std::endl;
     std::cout << "Usage:" << std::endl;
-    std::cout << "  Sign a DLL:    mldsa_dll_signer.exe <file.dll> <key_name>" << std::endl;
-    std::cout << "  Verify a DLL:  mldsa_dll_signer.exe <signed_file.dll> <key_name> --verify" << std::endl;
+    std::cout << "  Sign a DLL:    mldsa_code_signer.exe <file.dll> <key_name>" << std::endl;
+    std::cout << "  Verify a DLL:  mldsa_code_signer.exe <signed_file.dll> <key_name> --verify" << std::endl;
     std::cout << std::endl;
     std::cout << "Parameters:" << std::endl;
     std::cout << "  file.dll       : Path to the DLL file to sign or verify" << std::endl;
@@ -462,11 +462,11 @@ void printUsage() {
     std::cout << "  --verify       : Verify an already signed DLL file" << std::endl;
     std::cout << std::endl;
     std::cout << "Examples:" << std::endl;
-    std::cout << "  mldsa_dll_signer.exe mydll.dll \"ML-DSA-65-Key\"" << std::endl;
-    std::cout << "  mldsa_dll_signer.exe signed_mydll.dll \"ML-DSA-65-Key\" --verify" << std::endl;
+    std::cout << "  mldsa_code_signer.exe mydll.dll \"ML-DSA-65-Key\"" << std::endl;
+    std::cout << "  mldsa_code_signer.exe signed_mydll.dll \"ML-DSA-65-Key\" --verify" << std::endl;
     std::cout << std::endl;
     std::cout << "Note: For softcard slots, preload the softcard:" << std::endl;
-    std::cout << "  preload -s SoftcardName mldsa_dll_signer.exe mydll.dll \"KeyName\"" << std::endl;
+    std::cout << "  preload -s SoftcardName mldsa_code_signer.exe mydll.dll \"KeyName\"" << std::endl;
 }
 
 std::vector<CK_BYTE> getPublicKeyData(CK_SESSION_HANDLE hSession, CK_OBJECT_HANDLE hPublicKey) {
