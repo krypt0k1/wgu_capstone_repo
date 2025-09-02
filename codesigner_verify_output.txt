@@ -1,0 +1,50 @@
+ML-DSA DLL Code Signing Tool
+===============================================
+Post-Quantum Code Signing with Embedded Signatures
+Process: DLL --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature
+Purpose: Demonstrate PQ signatures in limited compatibility environments
+===============================================
+
+Loading PKCS#11 library (cknfast.dll)...
+Initializing PKCS#11...
+PKCS#11 initialized successfully.
+ML-DSA DLL Signature Verification
+==================================
+File: mechinfo.txt
+
+Getting available HSM slots...
+Found 2 slot(s) with tokens:
+  Slot 761406613:  (ML-DSA: Yes, SHA-256: Yes)
+  Slot 761406615: SoftcardTest (ML-DSA: Yes, SHA-256: Yes)
+
+Verifying embedded signature...
+Found embedded signature:
+  Version: 1
+  Parameter set: 1
+  Hash size: 32 bytes
+  Signature size: 2420 bytes
+  Public key size: 1312 bytes
+  Algorithm: ML-DSA-44 (Fast, compact signatures)
+Hash verification: PASSED
+  Hash matches: 591e7a910a9a962c7d7802a0989c0dad...
+
+Looking up public key 'mldsa44' from HSM...
+
+Getting available HSM slots...
+Found 2 slot(s) with tokens:
+  Slot 761406613:  (ML-DSA: Yes, SHA-256: Yes)
+  Slot 761406615: SoftcardTest (ML-DSA: Yes, SHA-256: Yes)
+
+Searching for ML-DSA key pair 'mldsa44'...
+  Found ML-DSA key pair in slot 761406613 ()
+   Parameter set: ML-DSA-44
+Found public key in HSM
+Public key verification: PASSED
+  Embedded public key matches HSM public key
+Signature verification: PASSED
+  Verification time: 4.991 ms
+  Original file size: 102512 bytes
+  Used HSM key: mldsa44
+
+DLL signature verification: PASSED
+File integrity: VERIFIED

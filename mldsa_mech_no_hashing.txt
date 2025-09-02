@@ -1,0 +1,779 @@
+ML-DSA Performance Benchmark Suite
+====================================================
+Benchmarking ML-DSA across multiple file sizes and parameter sets
+ML-DSA uses one-shot signing (entire message processed at once)
+File sizes: 1KB, 10KB, 100KB, 200KB, 300KB
+Parameter sets: ML-DSA-44, ML-DSA-65, ML-DSA-87
+Iterations per test: Adaptive (100 for small files, reduced for large files)
+===================================================
+
+Loading PKCS#11 library (cknfast.dll)...
+Initializing PKCS#11...
+PKCS#11 initialized successfully.
+
+Detecting available HSM slots...
+Found 2 slot(s) with tokens:
+  Slot 761406613:  (Token: loadshared accelerator, ML-DSA: Yes)
+  Slot 761406614: SoftcardTest (Token: SoftcardTest, ML-DSA: Yes)
+
+Found 2 slot(s) supporting ML-DSA:
+  Slot 761406613:  (Token: loadshared accelerator)
+  Slot 761406614: SoftcardTest (Token: SoftcardTest)
+
+================================================================================
+TESTING FILE SIZE: 1KB
+================================================================================
+Generating test data (1KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 1KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 39.786 ms
+  Using CKM_ML_DSA for file size 1KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 1KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 43.105 ms
+  Using CKM_ML_DSA for file size 1KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 1KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 63.885 ms
+  Using CKM_ML_DSA for file size 1KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 1KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 43.256 ms
+  Using CKM_ML_DSA for file size 1KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 1KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 51.161 ms
+  Using CKM_ML_DSA for file size 1KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 1KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 70.235 ms
+  Using CKM_ML_DSA for file size 1KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+================================================================================
+TESTING FILE SIZE: 10KB
+================================================================================
+Generating test data (10KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 10KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 38.385 ms
+  Using CKM_ML_DSA for file size 10KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 10KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 48.528 ms
+  Using CKM_ML_DSA for file size 10KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 10KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 103.608 ms
+  Using CKM_ML_DSA for file size 10KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 10KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 35.155 ms
+  Using CKM_ML_DSA for file size 10KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 10KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 40.929 ms
+  Using CKM_ML_DSA for file size 10KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 10KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 50.013 ms
+  Using CKM_ML_DSA for file size 10KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+================================================================================
+TESTING FILE SIZE: 100KB
+================================================================================
+Generating test data (100KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 100KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 40.094 ms
+  Using CKM_ML_DSA for file size 100KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 100KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 48.651 ms
+  Using CKM_ML_DSA for file size 100KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 100KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 54.398 ms
+  Using CKM_ML_DSA for file size 100KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 100KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 36.755 ms
+  Using CKM_ML_DSA for file size 100KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 100KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 44.593 ms
+  Using CKM_ML_DSA for file size 100KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 100KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 53.464 ms
+  Using CKM_ML_DSA for file size 100KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+================================================================================
+TESTING FILE SIZE: 200KB
+================================================================================
+Generating test data (200KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 200KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 28.470 ms
+  Using CKM_ML_DSA for file size 200KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 200KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 40.959 ms
+  Using CKM_ML_DSA for file size 200KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 200KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 48.816 ms
+  Using CKM_ML_DSA for file size 200KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 200KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 41.101 ms
+  Using CKM_ML_DSA for file size 200KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 200KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 42.945 ms
+  Using CKM_ML_DSA for file size 200KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 200KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 56.734 ms
+  Using CKM_ML_DSA for file size 200KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful sign/verify cycles
+
+================================================================================
+TESTING FILE SIZE: 300KB
+================================================================================
+Generating test data (300KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 300KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 37.561 ms
+  Using CKM_ML_DSA for file size 300KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 0/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 300KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 45.824 ms
+  Using CKM_ML_DSA for file size 300KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 0/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 300KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 62.828 ms
+  Using CKM_ML_DSA for file size 300KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 0/100 successful sign/verify cycles
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 300KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 32.469 ms
+  Using CKM_ML_DSA for file size 300KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 0/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 300KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 44.561 ms
+  Using CKM_ML_DSA for file size 300KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 0/100 successful sign/verify cycles
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 300KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 54.936 ms
+  Using CKM_ML_DSA for file size 300KB
+  Running 100 sign/verify cycles...
+    Progress: 0%
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 0/100 successful sign/verify cycles
+
+======================================================================================================================================================
+ML-DSA BENCHMARK RESULTS
+======================================================================================================================================================
+
+SLOT 761406613:  (Token: loadshared accelerator)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+NOTE: ML-DSA signature size is constant per parameter set, independent of message size
+All times in milliseconds. SigSize = ML-DSA signature size in bytes.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Param Set   File Size KeyGen      MinSign     MaxSign     AvgSign     MinVerify   MaxVerify   AvgVerify   SuccessRate  SigSize   
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ML-DSA-44   1KB       39.786      5.360       32.674      10.303      4.036       8.756       5.163       100.0        2420      
+ML-DSA-44   10KB      38.385      8.715       39.657      14.509      7.087       17.575      9.653       100.0        2420      
+ML-DSA-44   100KB     40.094      36.107      66.645      45.371      35.171      54.146      41.245      100.0        2420      
+ML-DSA-44   200KB     28.470      65.193      297.405     85.606      63.392      283.704     71.871      100.0        2420      
+ML-DSA-44   300KB     37.561      0.000       0.000       0.000       0.000       0.000       0.000       0.0          0         
+ML-DSA-65   1KB       43.105      6.738       46.398      16.081      5.158       9.738       6.674       100.0        3309      
+ML-DSA-65   10KB      48.528      9.797       50.533      19.144      8.293       17.609      11.434      100.0        3309      
+ML-DSA-65   100KB     48.651      39.155      82.635      50.913      35.911      55.813      43.293      100.0        3309      
+ML-DSA-65   200KB     40.959      66.574      258.067     84.875      64.185      274.778     76.474      100.0        3309      
+ML-DSA-65   300KB     45.824      0.000       0.000       0.000       0.000       0.000       0.000       0.0          0         
+ML-DSA-87   1KB       63.885      8.842       57.397      17.363      6.498       14.170      8.585       100.0        4627      
+ML-DSA-87   10KB      103.608     12.090      55.320      22.443      9.528       18.903      12.841      100.0        4627      
+ML-DSA-87   100KB     54.398      39.956      98.492      55.648      37.363      57.802      45.249      100.0        4627      
+ML-DSA-87   200KB     48.816      61.199      535.212     99.974      58.220      325.441     90.831      100.0        4627      
+ML-DSA-87   300KB     62.828      0.000       0.000       0.000       0.000       0.000       0.000       0.0          0         
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SLOT 761406614: SoftcardTest (Token: SoftcardTest)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+NOTE: ML-DSA signature size is constant per parameter set, independent of message size
+All times in milliseconds. SigSize = ML-DSA signature size in bytes.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Param Set   File Size KeyGen      MinSign     MaxSign     AvgSign     MinVerify   MaxVerify   AvgVerify   SuccessRate  SigSize   
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ML-DSA-44   1KB       43.256      5.263       27.411      10.786      4.123       24.756      5.777       100.0        2420      
+ML-DSA-44   10KB      35.155      8.625       28.799      14.153      7.235       16.628      9.708       100.0        2420      
+ML-DSA-44   100KB     36.755      36.554      60.718      46.730      34.860      75.178      41.999      100.0        2420      
+ML-DSA-44   200KB     41.101      66.594      108.400     80.974      65.019      91.502      74.379      100.0        2420      
+ML-DSA-44   300KB     32.469      0.000       0.000       0.000       0.000       0.000       0.000       0.0          0         
+ML-DSA-65   1KB       51.161      6.957       58.411      14.825      5.034       11.728      6.960       100.0        3309      
+ML-DSA-65   10KB      40.929      9.957       51.981      18.916      7.983       15.903      10.304      100.0        3309      
+ML-DSA-65   100KB     44.593      38.730      80.806      52.011      36.109      54.135      42.951      100.0        3309      
+ML-DSA-65   200KB     42.945      71.267      129.508     88.918      65.630      90.018      78.097      100.0        3309      
+ML-DSA-65   300KB     44.561      0.000       0.000       0.000       0.000       0.000       0.000       0.0          0         
+ML-DSA-87   1KB       70.235      9.102       51.488      17.326      6.529       14.287      8.840       100.0        4627      
+ML-DSA-87   10KB      50.013      12.144      57.042      22.030      9.760       19.596      12.830      100.0        4627      
+ML-DSA-87   100KB     53.464      39.432      93.558      53.133      36.769      54.653      43.302      100.0        4627      
+ML-DSA-87   200KB     56.734      71.122      154.419     90.166      65.833      147.121     79.828      100.0        4627      
+ML-DSA-87   300KB     54.936      0.000       0.000       0.000       0.000       0.000       0.000       0.0          0         
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SUMMARY STATISTICS
+================================================================================
+
+ML-DSA-44 (Fast, compact signatures):
+  NIST Security Level: 2
+  Security Equivalent: AES-128
+  Expected Signature Size: 2420 bytes
+  Average Key Generation Time: 37.875 ms
+  Average Signing Time: 38.554 ms
+  Average Verification Time: 32.474 ms
+
+ML-DSA-65 (Balanced performance):
+  NIST Security Level: 3
+  Security Equivalent: AES-192
+  Expected Signature Size: 3309 bytes
+  Average Key Generation Time: 45.109 ms
+  Average Signing Time: 43.210 ms
+  Average Verification Time: 34.523 ms
+
+ML-DSA-87 (Maximum security):
+  NIST Security Level: 5
+  Security Equivalent: AES-256
+  Expected Signature Size: 4627 bytes
+  Average Key Generation Time: 62.644 ms
+  Average Signing Time: 47.260 ms
+  Average Verification Time: 37.788 ms
+
+BENCHMARK CONFIGURATION
+========================================
+Iterations per test: 100
+File sizes tested: 1KB, 10KB, 100KB, 200KB, 300KB
+Parameter sets: ML-DSA-44, ML-DSA-65, ML-DSA-87
+Keys: Session-only (not stored in token)
+PKCS#11 Library: cknfast.dll (nShield)
+NOTE: Large files (>200KB) will fail due to ML-DSA one-shot limitation (no hashing before signing)
+
+Cleaning up PKCS#11...
+
+Benchmark completed successfully!
+PKCS#11 performance data captured from 2 HSM slot(s).

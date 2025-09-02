@@ -1,0 +1,718 @@
+ML-DSA Hash-then-Sign Performance Benchmark Suite
+========================================================
+Benchmarking ML-DSA with SHA-256 hash-then-sign approach
+Process: File --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+File sizes: 1KB, 100KB, 500KB, 1MB
+Parameter sets: ML-DSA-44, ML-DSA-65, ML-DSA-87
+Iterations per test: 100
+Benefits: No file size limits, better large file performance
+========================================================
+
+Loading PKCS#11 library (cknfast.dll)...
+Initializing PKCS#11...
+PKCS#11 initialized successfully.
+
+Detecting available HSM slots...
+Found 2 slot(s) with tokens:
+  Slot 761406613:  (Token: loadshared accelerator, ML-DSA: Yes, SHA-256: Yes)
+  Slot 761406614: SoftcardTest (Token: SoftcardTest, ML-DSA: Yes, SHA-256: Yes)
+
+Found 2 slot(s) supporting ML-DSA + SHA-256:
+  Slot 761406613:  (Token: loadshared accelerator)
+  Slot 761406614: SoftcardTest (Token: SoftcardTest)
+
+================================================================================
+TESTING FILE SIZE: 1KB (Hash-then-Sign)
+================================================================================
+Generating test data (1KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 1KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 42.985 ms
+  Process: File (1KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 88aacda26ae334ed29aa95989497441bb81cd84b2e96695dffb74b1548d1dfe8
+    ML-DSA Signature: 0fa15f9ec1f82033edc4e7126f93f872d457d0f21b0628f78b182a41b54abc4e... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=0.049ms, Sign=8.923ms, Verify=3.713ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 1KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 53.204 ms
+  Process: File (1KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 88aacda26ae334ed29aa95989497441bb81cd84b2e96695dffb74b1548d1dfe8
+    ML-DSA Signature: 14f7fb0e906db69456a5b8bb9adda302270158e6f38c1af18037d41237f4a711... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=0.051ms, Sign=13.099ms, Verify=4.479ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 1KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 42.963 ms
+  Process: File (1KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 88aacda26ae334ed29aa95989497441bb81cd84b2e96695dffb74b1548d1dfe8
+    ML-DSA Signature: 094a343b433e3d750281fa00b0acd2821191cd65f567cbb1227b26216dd8d05d... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=0.070ms, Sign=14.685ms, Verify=5.517ms
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 1KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 28.261 ms
+  Process: File (1KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 88aacda26ae334ed29aa95989497441bb81cd84b2e96695dffb74b1548d1dfe8
+    ML-DSA Signature: 3b4ca5601886dec7f13d90dc4beb254903ec3d3cedb27bfe7ed3dfd5c034078c... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=0.067ms, Sign=8.781ms, Verify=3.761ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 1KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 43.752 ms
+  Process: File (1KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 88aacda26ae334ed29aa95989497441bb81cd84b2e96695dffb74b1548d1dfe8
+    ML-DSA Signature: d873c5508c993795505be258e03907c799989e25876b333d30b73d03299bfedc... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=0.059ms, Sign=12.336ms, Verify=4.369ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 1KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 39.187 ms
+  Process: File (1KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 88aacda26ae334ed29aa95989497441bb81cd84b2e96695dffb74b1548d1dfe8
+    ML-DSA Signature: b91da8e93224d9db3df68719f97efee19048f7d74622a376a9a63f4b311d502f... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=0.067ms, Sign=14.581ms, Verify=5.776ms
+
+================================================================================
+TESTING FILE SIZE: 100KB (Hash-then-Sign)
+================================================================================
+Generating test data (100KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 100KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 36.114 ms
+  Process: File (100KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 1d9bbf27c3cf1bc7e98d38c5754870a834270f019daa361d89d34e2d2f9fabb7
+    ML-DSA Signature: 75039fda7371c9ec129ba4bcb836d2a6a09d0d524426b8372c350f9d46a0196b... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=2.832ms, Sign=8.548ms, Verify=3.622ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 100KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 35.445 ms
+  Process: File (100KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 1d9bbf27c3cf1bc7e98d38c5754870a834270f019daa361d89d34e2d2f9fabb7
+    ML-DSA Signature: e11a91a30f00ac65a3015d84c6706be611645bb9a12cdd900674845aaad6399b... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=3.249ms, Sign=12.185ms, Verify=4.439ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 100KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 52.757 ms
+  Process: File (100KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 1d9bbf27c3cf1bc7e98d38c5754870a834270f019daa361d89d34e2d2f9fabb7
+    ML-DSA Signature: 06dad9269d102318aeb0973bb3d30d5cb9ec00c4451928b72d9c24efff0c9dea... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=2.739ms, Sign=18.705ms, Verify=5.812ms
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 100KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 27.405 ms
+  Process: File (100KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 1d9bbf27c3cf1bc7e98d38c5754870a834270f019daa361d89d34e2d2f9fabb7
+    ML-DSA Signature: a75d330759b9757c1678f37774482605000f7f22172f89076444b9e80f970a25... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=2.938ms, Sign=7.668ms, Verify=3.624ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 100KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 41.833 ms
+  Process: File (100KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 1d9bbf27c3cf1bc7e98d38c5754870a834270f019daa361d89d34e2d2f9fabb7
+    ML-DSA Signature: 923b0e0c06f769c7e08c5c580ef691b0bab3d8bc51f0224ba9fadd44ca1fdd02... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=2.733ms, Sign=11.383ms, Verify=4.182ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 100KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 45.418 ms
+  Process: File (100KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 1d9bbf27c3cf1bc7e98d38c5754870a834270f019daa361d89d34e2d2f9fabb7
+    ML-DSA Signature: 0e571f96072846e183be97e8a76fd77ba07cb7a7776da5b832ee47c4746bb885... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=3.254ms, Sign=14.594ms, Verify=5.195ms
+
+================================================================================
+TESTING FILE SIZE: 500KB (Hash-then-Sign)
+================================================================================
+Generating test data (500KB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 500KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 30.031 ms
+  Process: File (500KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 3baa4f78cd6ffa21a81738452a1cb145314328fa870101b9831215cdfe650a5c
+    ML-DSA Signature: 9f2f99c68acbf942621852b00349e3d95fb33eaf8a108c17dbc06be2da4644dc... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=8.450ms, Sign=7.787ms, Verify=3.303ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 500KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 36.659 ms
+  Process: File (500KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 3baa4f78cd6ffa21a81738452a1cb145314328fa870101b9831215cdfe650a5c
+    ML-DSA Signature: 41ac34f0511ed9a5c12f97de48cc2a7084f5496c3edf845328657c74d90361ca... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=9.235ms, Sign=13.746ms, Verify=4.147ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 500KB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 47.387 ms
+  Process: File (500KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 3baa4f78cd6ffa21a81738452a1cb145314328fa870101b9831215cdfe650a5c
+    ML-DSA Signature: 2216c80977b9b013f1c7bd9cbcad69d1e7fe249fd6fc136153d38b7bd32f4e89... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=9.783ms, Sign=14.873ms, Verify=5.425ms
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 500KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 30.004 ms
+  Process: File (500KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 3baa4f78cd6ffa21a81738452a1cb145314328fa870101b9831215cdfe650a5c
+    ML-DSA Signature: 84a660f5ffc482eea1f23a558a78112a483d19545bf2a01c02906db34ec0f2c3... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=8.472ms, Sign=8.962ms, Verify=3.616ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 500KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 52.765 ms
+  Process: File (500KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 3baa4f78cd6ffa21a81738452a1cb145314328fa870101b9831215cdfe650a5c
+    ML-DSA Signature: cf0ee0da7b60815b83ae1586b662d839e4706047e5b34820df28661fd769eec1... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=9.250ms, Sign=13.543ms, Verify=4.283ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 500KB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 47.994 ms
+  Process: File (500KB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 3baa4f78cd6ffa21a81738452a1cb145314328fa870101b9831215cdfe650a5c
+    ML-DSA Signature: 154a2d503d8dddc15857d1317d8f1fe293a4d4516e615a10eba7635f1f52d5e6... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=9.709ms, Sign=15.231ms, Verify=5.577ms
+
+================================================================================
+TESTING FILE SIZE: 1MB (Hash-then-Sign)
+================================================================================
+Generating test data (1MB)...
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406613: 
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 1MB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 33.765 ms
+  Process: File (1MB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 75771ecff796b46bb020516496fd344401557100a7b287278429d2c95455e7cd
+    ML-DSA Signature: 01ebc0dab94894e3aa09b922cbed15a737f8a1e7b29a1400a2c453256bb69162... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=17.025ms, Sign=9.092ms, Verify=3.620ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 1MB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 40.680 ms
+  Process: File (1MB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 75771ecff796b46bb020516496fd344401557100a7b287278429d2c95455e7cd
+    ML-DSA Signature: 20135b8f397a30d6bfe76db78326938829eb91a96766062ca55ad35a78fde671... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=18.517ms, Sign=13.239ms, Verify=4.317ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 1MB data on Slot 761406613 ()...
+  Slot type detected: Accelerator slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 52.695 ms
+  Process: File (1MB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 75771ecff796b46bb020516496fd344401557100a7b287278429d2c95455e7cd
+    ML-DSA Signature: 5f7177752738f55b35554de0ed6d7b9d3a52ba87910fbf4ed5b6d26f1000a884... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=17.331ms, Sign=14.368ms, Verify=5.489ms
+
++++++++++++++++++++++++++++++++++++++++++++++
+Testing Slot 761406614: SoftcardTest
++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------
+Benchmarking ML-DSA-44 with 1MB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 37.700 ms
+  Process: File (1MB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 75771ecff796b46bb020516496fd344401557100a7b287278429d2c95455e7cd
+    ML-DSA Signature: f299187ceebd07973cc6de8d4bd362322bfd1cd733c06486f1f2fcdafe513222... (size: 2420 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=15.873ms, Sign=8.775ms, Verify=3.629ms
+
+----------------------------------------
+Benchmarking ML-DSA-65 with 1MB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 38.657 ms
+  Process: File (1MB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 75771ecff796b46bb020516496fd344401557100a7b287278429d2c95455e7cd
+    ML-DSA Signature: dd69b42beefaedd7b34b5193738a0336ccbddc2e5e2d69a87daa9f635a782191... (size: 3309 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=16.982ms, Sign=13.257ms, Verify=4.319ms
+
+----------------------------------------
+Benchmarking ML-DSA-87 with 1MB data on Slot 761406614 (SoftcardTest)...
+  Attempting login to card slot...
+  Login successful
+  Slot type detected: Card slot
+  Attempting key generation with session keys...
+  Key generation completed with session keys in 57.977 ms
+  Process: File (1MB) --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+  Running 100 hash-sign-verify cycles...
+    Progress: 0%
+    SHA-256 Hash: 75771ecff796b46bb020516496fd344401557100a7b287278429d2c95455e7cd
+    ML-DSA Signature: 92080df5f0c6f56e8386c475e8e019a8e967079448738e3973f01491ba80161e... (size: 4627 bytes)
+    Progress: 10%
+    Progress: 20%
+    Progress: 30%
+    Progress: 40%
+    Progress: 50%
+    Progress: 60%
+    Progress: 70%
+    Progress: 80%
+    Progress: 90%
+  Completed: 100/100 successful hash-sign-verify cycles
+  Average times: Hash=17.550ms, Sign=13.989ms, Verify=5.483ms
+
+====================================================================================================================================================================================
+ML-DSA HASH-THEN-SIGN BENCHMARK RESULTS
+====================================================================================================================================================================================
+
+SLOT 761406613:  (Token: loadshared accelerator)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Process: File --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+All times in milliseconds. Hash time increases with file size, Sign/Verify time constant (32-byte input)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Param Set   File Size KeyGen      AvgHash     MinSign     MaxSign     AvgSign     MinVerify   MaxVerify   AvgVerify   SuccessRate  SigSize   Hash (first 16 hex) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ML-DSA-44   1KB       42.985      0.049       4.194       39.405      8.923       3.042       6.879       3.713       100.0        2420      88aacda26ae334ed29aa95989497441b
+ML-DSA-44   100KB     36.114      2.832       4.229       24.924      8.548       3.039       7.773       3.622       100.0        2420      1d9bbf27c3cf1bc7e98d38c5754870a8
+ML-DSA-44   500KB     30.031      8.450       4.102       26.076      7.787       2.896       6.221       3.303       100.0        2420      3baa4f78cd6ffa21a81738452a1cb145
+ML-DSA-44   1MB       33.765      17.025      4.313       24.814      9.092       3.043       6.168       3.620       100.0        2420      75771ecff796b46bb020516496fd3444
+ML-DSA-65   1KB       53.204      0.051       5.436       44.719      13.099      3.821       13.782      4.479       100.0        3309      88aacda26ae334ed29aa95989497441b
+ML-DSA-65   100KB     35.445      3.249       5.579       43.030      12.185      3.743       8.099       4.439       100.0        3309      1d9bbf27c3cf1bc7e98d38c5754870a8
+ML-DSA-65   500KB     36.659      9.235       5.237       35.567      13.746      3.699       5.973       4.147       100.0        3309      3baa4f78cd6ffa21a81738452a1cb145
+ML-DSA-65   1MB       40.680      18.517      5.635       35.200      13.239      3.759       6.972       4.317       100.0        3309      75771ecff796b46bb020516496fd3444
+ML-DSA-87   1KB       42.963      0.070       7.146       58.707      14.685      4.993       6.531       5.517       100.0        4627      88aacda26ae334ed29aa95989497441b
+ML-DSA-87   100KB     52.757      2.739       6.985       101.350     18.705      4.936       22.889      5.812       100.0        4627      1d9bbf27c3cf1bc7e98d38c5754870a8
+ML-DSA-87   500KB     47.387      9.783       7.059       39.831      14.873      4.936       6.620       5.425       100.0        4627      3baa4f78cd6ffa21a81738452a1cb145
+ML-DSA-87   1MB       52.695      17.331      7.244       39.352      14.368      4.884       8.025       5.489       100.0        4627      75771ecff796b46bb020516496fd3444
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SLOT 761406614: SoftcardTest (Token: SoftcardTest)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Process: File --> SHA-256 Hash (32 bytes) --> ML-DSA Sign --> ML-DSA Verify
+All times in milliseconds. Hash time increases with file size, Sign/Verify time constant (32-byte input)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Param Set   File Size KeyGen      AvgHash     MinSign     MaxSign     AvgSign     MinVerify   MaxVerify   AvgVerify   SuccessRate  SigSize   Hash (first 16 hex) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ML-DSA-44   1KB       28.261      0.067       4.370       26.596      8.781       3.191       6.114       3.761       100.0        2420      88aacda26ae334ed29aa95989497441b
+ML-DSA-44   100KB     27.405      2.938       4.126       22.208      7.668       2.982       7.791       3.624       100.0        2420      1d9bbf27c3cf1bc7e98d38c5754870a8
+ML-DSA-44   500KB     30.004      8.472       4.263       30.081      8.962       3.023       5.835       3.616       100.0        2420      3baa4f78cd6ffa21a81738452a1cb145
+ML-DSA-44   1MB       37.700      15.873      4.428       24.998      8.775       2.920       6.052       3.629       100.0        2420      75771ecff796b46bb020516496fd3444
+ML-DSA-65   1KB       43.752      0.059       5.380       45.040      12.336      3.698       8.406       4.369       100.0        3309      88aacda26ae334ed29aa95989497441b
+ML-DSA-65   100KB     41.833      2.733       5.087       40.948      11.383      3.716       14.822      4.182       100.0        3309      1d9bbf27c3cf1bc7e98d38c5754870a8
+ML-DSA-65   500KB     52.765      9.250       5.559       63.088      13.543      3.827       6.151       4.283       100.0        3309      3baa4f78cd6ffa21a81738452a1cb145
+ML-DSA-65   1MB       38.657      16.982      5.572       35.004      13.257      3.744       5.532       4.319       100.0        3309      75771ecff796b46bb020516496fd3444
+ML-DSA-87   1KB       39.187      0.067       7.171       44.241      14.581      4.997       24.188      5.776       100.0        4627      88aacda26ae334ed29aa95989497441b
+ML-DSA-87   100KB     45.418      3.254       6.905       54.093      14.594      4.821       6.700       5.195       100.0        4627      1d9bbf27c3cf1bc7e98d38c5754870a8
+ML-DSA-87   500KB     47.994      9.709       7.290       67.704      15.231      4.891       9.583       5.577       100.0        4627      3baa4f78cd6ffa21a81738452a1cb145
+ML-DSA-87   1MB       57.977      17.550      7.321       41.031      13.989      4.879       8.242       5.483       100.0        4627      75771ecff796b46bb020516496fd3444
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SUMMARY STATISTICS
+================================================================================
+
+ML-DSA-44 (Fast, compact signatures):
+  NIST Security Level: 2
+  Security Equivalent: AES-128
+  Expected Signature Size: 2420 bytes
+  Average Key Generation Time: 33.283 ms
+  Average Hash Time: 6.963 ms
+  Average Signing Time: 8.567 ms
+  Average Verification Time: 3.611 ms
+
+ML-DSA-65 (Balanced performance):
+  NIST Security Level: 3
+  Security Equivalent: AES-192
+  Expected Signature Size: 3309 bytes
+  Average Key Generation Time: 42.874 ms
+  Average Hash Time: 7.510 ms
+  Average Signing Time: 12.849 ms
+  Average Verification Time: 4.317 ms
+
+ML-DSA-87 (Maximum security):
+  NIST Security Level: 5
+  Security Equivalent: AES-256
+  Expected Signature Size: 4627 bytes
+  Average Key Generation Time: 48.297 ms
+  Average Hash Time: 7.563 ms
+  Average Signing Time: 15.128 ms
+  Average Verification Time: 5.534 ms
+
+BENCHMARK CONFIGURATION
+==================================================
+Approach: Hash-then-Sign (SHA-256 + ML-DSA)
+Iterations per test: 100
+File sizes tested: 1KB, 100KB, 500KB, 1MB
+Parameter sets: ML-DSA-44, ML-DSA-65, ML-DSA-87
+Hash algorithm: SHA-256 (32-byte output)
+Keys: Session-only (not stored in token)
+PKCS#11 Library: cknfast.dll (nShield)
+Benefits: No file size limitations, better large file performance
+
+Cleaning up PKCS#11...
+
+Hash-then-Sign benchmark completed successfully!
+PKCS#11 performance data captured from 2 HSM slot(s).
