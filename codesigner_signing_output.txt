@@ -1,14 +1,14 @@
-ML-DSA DLL Code Signing Tool
+ML-DSA Code Signing Tool
 ===============================================
 Post-Quantum Code Signing with Embedded Signatures
-Process: DLL --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature
+Process: File --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature
 Purpose: Demonstrate PQ signatures in limited compatibility environments
 ===============================================
 
 Loading PKCS#11 library (cknfast.dll)...
 Initializing PKCS#11...
 PKCS#11 initialized successfully.
-ML-DSA DLL Code Signing Tool
+ML-DSA Code Signing Tool
 ============================
 File: mechinfo.txt
 Key: mldsa44
@@ -26,8 +26,8 @@ ML-DSA Parameter Set: ML-DSA-44 (Fast, compact signatures)
 NIST Security Level: 2
 Security Equivalent: AES-128
 
-Reading DLL file...
-DLL size: 102512 bytes
+Reading file...
+File size: 102512 bytes
 
 Computing SHA-256 hash...
 Hash: 591e7a910a9a962c7d7802a0989c0dadf8b94532ccebb24eab4d66d3d09cfe8b
@@ -40,15 +40,15 @@ Signature size: 2420 bytes
 Signature (first 32 bytes): 706ed61ffeeb289b3b1af09ed731040b89b99bafe64c261c8c3aa26ec8e151e8...
 Public key size: 1312 bytes
 
-Embedding signature into DLL file...
+Embedding signature into file...
 Signature embedded successfully!
   Embedded signature size: 3800 bytes
-  Total DLL size: 106312 bytes
+  Total file size: 106312 bytes
 
 ============================================================
-SUCCESS: DLL SIGNED WITH POST-QUANTUM SIGNATURE
+SUCCESS: FILE SIGNED WITH POST-QUANTUM SIGNATURE
 ============================================================
-DLL file signed with ML-DSA-44
+File signed with ML-DSA-44
 SHA-256 hash computed and signed
 ML-DSA signature embedded in file
 
@@ -56,3 +56,4 @@ Signed file: mechinfo.txt
 Final size: 106312 bytes
 
 To verify: mldsa_code_signer.exe mechinfo.txt --verify
+
