@@ -1,14 +1,15 @@
-ML-DSA DLL Code Signing Tool
+ML-DSA Code Signing Tool
 ===============================================
 Post-Quantum Code Signing with Embedded Signatures
-Process: DLL --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature
+Process: File --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature
 Purpose: Demonstrate PQ signatures in limited compatibility environments
 ===============================================
 
 Loading PKCS#11 library (cknfast.dll)...
 Initializing PKCS#11...
 PKCS#11 initialized successfully.
-ML-DSA DLL Signature Verification
+
+ML-DSA Signature Verification
 ==================================
 File: mechinfo.txt
 
@@ -46,5 +47,6 @@ Signature verification: PASSED
   Original file size: 102512 bytes
   Used HSM key: mldsa44
 
-DLL signature verification: PASSED
+Signature verification: PASSED
 File integrity: VERIFIED
+
