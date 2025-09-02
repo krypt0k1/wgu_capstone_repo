@@ -6,7 +6,7 @@
  * - File sizes: 1KB, 10KB, 100KB, 200KB, 300KB
  * - RSA: 2048-bit, 4096-bit (1024-bit excluded for enterprise security)
  * - ECC NIST curves: P-256 (secp256r1), P-384 (secp384r1), P-521 (secp521r1)
- * - DSA: 1024-bit, 2048-bit, 3072-bit
+ * - DSA: 2048-bit, 3072-bit (1024-bit excluded for enterprise security)
  * - Tests all available HSM slots
  * - Metrics: Key generation, signing, verification times and signature sizes
  * - 100 iterations per test for statistical accuracy
@@ -142,8 +142,7 @@ std::vector<AlgorithmParameterSet> getClassicalAlgorithmSets() {
         {CKK_EC, CKM_EC_KEY_PAIR_GEN, CKM_ECDSA, "ECC-P384", "NIST P-384 (secp384r1)", 384, 96, "192-bit security", "ECC"},
         {CKK_EC, CKM_EC_KEY_PAIR_GEN, CKM_ECDSA, "ECC-P521", "NIST P-521 (secp521r1)", 521, 132, "256-bit security", "ECC"},
         
-        // DSA algorithms - using existing keys
-        {CKK_DSA, CKM_DSA_KEY_PAIR_GEN, CKM_DSA, "1024dsa", "DSA 1024-bit", 1024, 40, "80-bit security", "DSA"},
+        // DSA algorithms - using existing keys       
         {CKK_DSA, CKM_DSA_KEY_PAIR_GEN, CKM_DSA, "2048dsa", "DSA 2048-bit", 2048, 56, "112-bit security", "DSA"},
         {CKK_DSA, CKM_DSA_KEY_PAIR_GEN, CKM_DSA, "3072dsa", "DSA 3072-bit", 3072, 64, "128-bit security", "DSA"}
     };
@@ -1189,7 +1188,7 @@ void printBenchmarkTable(const std::vector<SlotInfo>& slots) {
     std::cout << std::endl;
     std::cout << "RSA: 2048-bit, 4096-bit (signs SHA-256 hash)" << std::endl;
     std::cout << "ECC: P-256, P-384, P-521 (signs SHA-256 hash)" << std::endl;
-    std::cout << "DSA: 1024-bit, 2048-bit, 3072-bit (signs 20-byte hash)" << std::endl;
+    std::cout << "DSA: 2048-bit, 3072-bit (signs 20-byte hash)" << std::endl;
     std::cout << "Keys: Session-only (not stored in token)" << std::endl;
     std::cout << "PKCS#11 Library: cknfast.dll (nShield)" << std::endl;
 }
@@ -1273,3 +1272,4 @@ int main() {
     
     return 0;
 }
+
