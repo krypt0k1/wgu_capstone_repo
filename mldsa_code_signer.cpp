@@ -2,8 +2,8 @@
  * ML-DSA DLL Code Signing with Embedded Signatures
  * 
  * This application demonstrates post-quantum code signing using ML-DSA:
- * - Signs existing DLL files with ML-DSA keys stored in HSM
- * - Computes SHA-256 hash of the DLL content
+ * - Signs files (DLL, executables, etc) with ML-DSA keys stored in HSM
+ * - Computes SHA-256 hash of the content
  * - Signs the hash using existing ML-DSA keys (looked up by name)
  * - Embeds the signed hash into the DLL file
  * - Validates embedded signatures in signed DLL files
@@ -13,14 +13,14 @@
  *   Verify a DLL:  mldsa_code_signer.exe <signed_file.dll> --verify
  * 
  * WORKFLOW (Signing):
- * 1. Look up existing ML-DSA key pair by name in HSM
- * 2. Load existing DLL file
+ * 1. Look up the ML-DSA key pair by name in the HSM
+ * 2. Load file
  * 3. Hash the DLL content (SHA-256)
  * 4. Sign the hash with ML-DSA private key
  * 5. Embed signature into DLL file
  * 
  * WORKFLOW (Verification):
- * 1. Load signed DLL file
+ * 1. Load signed file
  * 2. Extract embedded signature and public key
  * 3. Verify embedded signature with ML-DSA public key
  * 
@@ -39,7 +39,17 @@
  *     preload -s <SoftcardName> .\mldsa_code_signer.exe <file.dll> <key_name>
  * 
  * Example:
- *     preload -s TestSoftcard .\mldsa_code_signer.exe mydll.dll "ML-DSA-65-Key"
+ *     preload -s TestSoftcard .\mldsa_code_signer.exe mydll.dll "keyname"
+ *
+ * For cardset slots, you must also preload:
+ *
+ *     preload -c CardSetName .\mldsa_codesigner.exe mydll.dll "keyname"
+ * Obtain key label by executing:
+ *     
+ *     nfkminfo -l 
+ *     cklist 
+ * 
+ * Execute from /opt/nfast/bin or %NFAST_HOME%\bin using a cmd prompt or equivalent shell. 
  */
 
 #include <iostream>
