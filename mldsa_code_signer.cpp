@@ -1,5 +1,5 @@
 ﻿/*
- * ML-DSA DLL Code Signing with Embedded Signatures
+ * ML-DSA Code Signing with Embedded Signatures
  * 
  * This application demonstrates post-quantum code signing using ML-DSA:
  * - Signs files (DLL, executables, etc) with ML-DSA keys stored in HSM
@@ -9,15 +9,15 @@
  * - Validates embedded signatures in signed DLL files
  * 
  * USAGE:
- *   Sign a DLL:    mldsa_code_signer.exe <file.dll> <key_name>
- *   Verify a DLL:  mldsa_code_signer.exe <signed_file.dll> --verify
+ *   Sign a file:    mldsa_code_signer.exe <file.dll> <key_name>
+ *   Verify a file:  mldsa_code_signer.exe <signed_file.dll> --verify
  * 
  * WORKFLOW (Signing):
  * 1. Look up the ML-DSA key pair by name in the HSM
  * 2. Load file
- * 3. Hash the DLL content (SHA-256)
+ * 3. Hash the file content (SHA-256)
  * 4. Sign the hash with ML-DSA private key
- * 5. Embed signature into DLL file
+ * 5. Embed signature into file
  * 
  * WORKFLOW (Verification):
  * 1. Load signed file
@@ -173,10 +173,10 @@ std::string bytesToHex(const std::vector<CK_BYTE>& bytes, size_t maxLen = 0) {
 }
 
 bool initializePKCS11() {
-    std::cout << "ML-DSA DLL Code Signing Tool" << std::endl;
+    std::cout << "ML-DSA Code Signing Tool" << std::endl;
     std::cout << "===============================================" << std::endl;
     std::cout << "Post-Quantum Code Signing with Embedded Signatures" << std::endl;
-    std::cout << "Process: DLL --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature" << std::endl;
+    std::cout << "Process: File --> SHA-256 Hash -->  ML-DSA Key Signs --> Embed Data -->  Verify Signature" << std::endl;
     std::cout << "Purpose: Demonstrate PQ signatures in limited compatibility environments" << std::endl;
     std::cout << "===============================================\n" << std::endl;
     
@@ -459,17 +459,17 @@ MLDSAParameterSet getMLDSAParamSetInfo(CK_ML_DSA_PARAMETER_SET_TYPE paramSet) {
 }
 
 void printUsage() {
-    std::cout << "ML-DSA DLL Code Signing Tool" << std::endl;
+    std::cout << "ML-DSA Code Signing Tool" << std::endl;
     std::cout << "=============================" << std::endl;
     std::cout << std::endl;
     std::cout << "Usage:" << std::endl;
-    std::cout << "  Sign a DLL:    mldsa_code_signer.exe <file.dll> <key_name>" << std::endl;
-    std::cout << "  Verify a DLL:  mldsa_code_signer.exe <signed_file.dll> <key_name> --verify" << std::endl;
+    std::cout << "  Sign a File:    mldsa_code_signer.exe <file.dll> <key_name>" << std::endl;
+    std::cout << "  Verify a File:  mldsa_code_signer.exe <signed_file.dll> <key_name> --verify" << std::endl;
     std::cout << std::endl;
     std::cout << "Parameters:" << std::endl;
-    std::cout << "  file.dll       : Path to the DLL file to sign or verify" << std::endl;
+    std::cout << "  file.dll       : Path to the file to sign or verify" << std::endl;
     std::cout << "  key_name       : Name/label of the ML-DSA key in the HSM" << std::endl;
-    std::cout << "  --verify       : Verify an already signed DLL file" << std::endl;
+    std::cout << "  --verify       : Verify an already signed  file" << std::endl;
     std::cout << std::endl;
     std::cout << "Examples:" << std::endl;
     std::cout << "  mldsa_code_signer.exe mydll.dll \"ML-DSA-65-Key\"" << std::endl;
@@ -536,13 +536,13 @@ std::vector<CK_BYTE> signHash(CK_SESSION_HANDLE hSession, CK_OBJECT_HANDLE hPriv
     return signature;
 }
 
-bool embedSignatureInDLL(const std::string& filename, const std::vector<CK_BYTE>& hash,
+bool embedSignature(const std::string& filename, const std::vector<CK_BYTE>& hash,
                         const std::vector<CK_BYTE>& signature, const std::vector<CK_BYTE>& publicKey,
                         const MLDSAParameterSet& paramSet) {
-    std::cout << "\nEmbedding signature into DLL file..." << std::endl;
+    std::cout << "\nEmbedding signature into file..." << std::endl;
     
     // Read current file content
-    auto dllContent = readFileContent(filename);
+    auto fileContent = readFileContent(filename);
     
     // Create embedded signature structure
     EmbeddedSignature embSig;
@@ -556,7 +556,7 @@ bool embedSignatureInDLL(const std::string& filename, const std::vector<CK_BYTE>
     // Open file for appending
     std::ofstream file(filename, std::ios::binary | std::ios::app);
     if (!file.is_open()) {
-        std::cerr << "Error: Could not open DLL file for embedding" << std::endl;
+        std::cerr << "Error: Could not open file for embedding" << std::endl;
         return false;
     }
     
@@ -579,7 +579,7 @@ bool embedSignatureInDLL(const std::string& filename, const std::vector<CK_BYTE>
         fileSize = sizeFile.tellg();
         sizeFile.close();
     }
-    std::cout << "  Total DLL size: " << fileSize << " bytes" << std::endl;
+    std::cout << "  Total File size: " << fileSize << " bytes" << std::endl;
     
     return true;
 }
@@ -611,7 +611,7 @@ bool verifyEmbeddedSignature(CK_SESSION_HANDLE hSession, const std::string& file
     }
     
     if (!found) {
-        std::cerr << "Error: No embedded signature found in DLL" << std::endl;
+        std::cerr << "Error: No embedded signature found in file" << std::endl;
         return false;
     }
     
@@ -643,13 +643,13 @@ bool verifyEmbeddedSignature(CK_SESSION_HANDLE hSession, const std::string& file
     
     memcpy(embeddedPublicKey.data(), &fileContent[dataPos], embSig->publicKeySize);
     
-    // Compute hash of original DLL content (without embedded signature)
+    // Compute hash of original content (without embedded signature)
     std::vector<CK_BYTE> originalContent(fileContent.begin(), fileContent.begin() + sigPos);
     auto computedHash = computeSHA256Hash(hSession, originalContent);
     
     // Verify hash matches
     if (embeddedHash != computedHash) {
-        std::cerr << "Error: Hash mismatch - DLL content has been modified!" << std::endl;
+        std::cerr << "Error: Hash mismatch - content has been modified!" << std::endl;
         std::cout << "  Embedded hash: " << bytesToHex(embeddedHash, 16) << std::endl;
         std::cout << "  Computed hash: " << bytesToHex(computedHash, 16) << std::endl;
         return false;
@@ -720,7 +720,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    std::string dllFilename = argv[1];
+    std::string Filename = argv[1];
     std::string keyName = argv[2];
     bool verifyMode = false;
     
@@ -736,9 +736,9 @@ int main(int argc, char* argv[]) {
     }
     
     // Check if file exists
-    std::ifstream fileCheck(dllFilename);
+    std::ifstream fileCheck(Filename);
     if (!fileCheck.good()) {
-        std::cerr << "Error: File '" << dllFilename << "' does not exist." << std::endl;
+        std::cerr << "Error: File '" << Filename << "' does not exist." << std::endl;
         return 1;
     }
     
@@ -749,9 +749,9 @@ int main(int argc, char* argv[]) {
     
     if (verifyMode) {
         // Verification mode
-        std::cout << "ML-DSA DLL Signature Verification" << std::endl;
+        std::cout << "ML-DSA Signature Verification" << std::endl;
         std::cout << "==================================" << std::endl;
-        std::cout << "File: " << dllFilename << std::endl;
+        std::cout << "File: " << Filename << std::endl;
         
         // Open a session on any available slot for verification
         auto slots = getAvailableSlots();
@@ -769,13 +769,13 @@ int main(int argc, char* argv[]) {
         
         try {
             // Verify the embedded signature using the specified key
-            if (!verifyEmbeddedSignature(hSession, dllFilename, keyName)) {
+            if (!verifyEmbeddedSignature(hSession, Filename, keyName)) {
                 std::cerr << "Signature verification failed!" << std::endl;
                 pFunctionList->C_CloseSession(hSession);
                 return 1;
             }
             
-            std::cout << "\nDLL signature verification: PASSED" << std::endl;
+            std::cout << "\n Signature verification: PASSED" << std::endl;
             std::cout << "File integrity: VERIFIED" << std::endl;
             
         } catch (const std::exception& e) {
@@ -788,9 +788,9 @@ int main(int argc, char* argv[]) {
         
     } else {
         // Signing mode
-        std::cout << "ML-DSA DLL Code Signing Tool" << std::endl;
+        std::cout << "ML-DSA Code Signing Tool" << std::endl;
         std::cout << "============================" << std::endl;
-        std::cout << "File: " << dllFilename << std::endl;
+        std::cout << "File: " << Filename << std::endl;
         std::cout << "Key: " << keyName << std::endl;
         
         // Get available slots
@@ -834,13 +834,13 @@ int main(int argc, char* argv[]) {
             std::cout << "NIST Security Level: " << paramSetInfo.nistLevel << std::endl;
             std::cout << "Security Equivalent: " << paramSetInfo.securityEquivalent << std::endl;
             
-            // Read and hash the DLL content
-            std::cout << "\nReading DLL file..." << std::endl;
-            auto dllContent = readFileContent(dllFilename);
-            std::cout << "DLL size: " << dllContent.size() << " bytes" << std::endl;
+            // Read and hash the content
+            std::cout << "\nReading file..." << std::endl;
+            auto fileContent = readFileContent(Filename);
+            std::cout << "File size: " << fileContent.size() << " bytes" << std::endl;
             
             std::cout << "\nComputing SHA-256 hash..." << std::endl;
-            auto hash = computeSHA256Hash(hSession, dllContent);
+            auto hash = computeSHA256Hash(hSession, fileContent);
             std::cout << "Hash: " << bytesToHex(hash) << std::endl;
             
             // Sign the hash using the found key
@@ -852,27 +852,27 @@ int main(int argc, char* argv[]) {
             auto publicKeyData = getPublicKeyData(hSession, keyInfo.hPublicKey);
             std::cout << "Public key size: " << publicKeyData.size() << " bytes" << std::endl;
             
-            // Embed signature into DLL
-            if (!embedSignatureInDLL(dllFilename, hash, signature, publicKeyData, paramSetInfo)) {
+            // Embed signature into file
+            if (!embedSignature(Filename, hash, signature, publicKeyData, paramSetInfo)) {
                 throw std::runtime_error("Signature embedding failed");
             }
             
             std::cout << "\n" << std::string(60, '=') << std::endl;
-            std::cout << "SUCCESS: DLL SIGNED WITH POST-QUANTUM SIGNATURE" << std::endl;
+            std::cout << "SUCCESS: FILE SIGNED WITH POST-QUANTUM SIGNATURE" << std::endl;
             std::cout << std::string(60, '=') << std::endl;
-            std::cout << "DLL file signed with " << paramSetInfo.name << std::endl;
+            std::cout << "File signed with " << paramSetInfo.name << std::endl;
             std::cout << "SHA-256 hash computed and signed" << std::endl;
             std::cout << "ML-DSA signature embedded in file" << std::endl;
-            std::cout << "\nSigned file: " << dllFilename << std::endl;
+            std::cout << "\nSigned file: " << Filename << std::endl;
             // Get final file size
-            std::ifstream sizeFile(dllFilename, std::ifstream::ate | std::ifstream::binary);
+            std::ifstream sizeFile(Filename, std::ifstream::ate | std::ifstream::binary);
             size_t finalSize = 0;
             if (sizeFile.is_open()) {
                 finalSize = sizeFile.tellg();
                 sizeFile.close();
             }
             std::cout << "Final size: " << finalSize << " bytes" << std::endl;
-            std::cout << "\nTo verify: " << argv[0] << " " << dllFilename << " --verify" << std::endl;
+            std::cout << "\nTo verify: " << argv[0] << " " << Filename << " --verify" << std::endl;
             
         } catch (const std::exception& e) {
             std::cerr << "\nError during signing: " << e.what() << std::endl;
