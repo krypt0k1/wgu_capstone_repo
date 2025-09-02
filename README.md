@@ -1,6 +1,6 @@
 # WGU Capstone: Post-Quantum Cryptography Performance on HSMs
 
-This repository contains the source code and supporting documentation for a Master of Science in Cybersecurity and Information Assurance capstone project for Western Governors University (WGU).
+This repository contains the source code and supporting documentation for a Bachelor's of Science in Cybersecurity and Information Assurance capstone project for Western Governors University (WGU).
 
 The project implements and benchmarks NIST-standardized Post-Quantum Cryptography (PQC) algorithms against classical algorithms on a production Hardware Security Module (HSM) to provide empirical data for enterprise migration planning.
 
@@ -10,7 +10,7 @@ The project implements and benchmarks NIST-standardized Post-Quantum Cryptograph
 
 ### Problem Statement
 
-The rise of quantum computing threatens to break the classical cryptographic algorithms (like RSA and ECC) that secure modern digital infrastructure. While NIST has standardized new quantum-resistant algorithms like CRYSTALS-Dilithium (ML-DSA), enterprises lack empirical data on how these new algorithms perform on their existing HSM hardware. This knowledge gap makes it difficult to plan for migration, creating a significant security risk.
+The rise of quantum computing threatens to compromise the classical cryptographic algorithms (such as RSA and ECC) that secure modern digital infrastructure. While NIST has standardized new quantum-resistant algorithms like CRYSTALS-Dilithium (ML-DSA), enterprises lack empirical data on how these new algorithms perform on their existing HSM hardware. This knowledge gap makes it difficult to plan for migration, creating a significant security risk.
 
 ### Solution
 
