@@ -7,10 +7,10 @@
  * - File sizes: 1KB, 10KB, 100KB, 200KB, 300KB
  * - Parameter sets: ML-DSA-44, ML-DSA-65, ML-DSA-87
  * - Tests all available HSM slots
- * - Metrics: Key generation, signing, verification times and signature sizes
+ * - Metrics: Key generation, signing, verification times, and signature sizes
  * - 100 iterations per test for statistical accuracy
  * 
- * IMPORTANT: nCipher nShield Usage Requirements & Empirical Findings
+ * IMPORTANT: nCipher nShield Usage Requirements & Findings
  * =================================================================
  * 
  * 1. ML-DSA Message Size Handling - CONFIRMED HARD LIMIT:
@@ -722,3 +722,4 @@ int main() {
     
     return 0;
 }
+
